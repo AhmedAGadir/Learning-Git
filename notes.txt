@@ -123,3 +123,7 @@ once it takes you to that page copy the last two lines:
 
 $ git remote add origin https://github.com/AhmedAGadir/Learning-Git.git
 $ git push -u origin master
+
+// now its a remove repository. to push it to github all you have to do is 
+
+$ git push
