@@ -1,0 +1,63 @@
+for local repositories:
+
+$ git init
+// initialize a git repository, creates a .git folder in a project which is hidden by default, you almost never need to go into that folder
+
+$ git add <file> 
+// add file(s) to staging area/index which will then be ready for commit.
+
+$ git status 
+// will show you whats in the staging area, displays differences between the working tree and the staging index.
+
+$ git commit
+// commit changes in index to local repository 
+
+
+----------------
+for remote repositories:
+
+$ git push
+// pushes local repository to remote repository, you'll have to add that and your credentials (pwords etc), you can also create SSH keys so that you dont have to add passwords
+
+$ git pull
+// pulls the latest version from the remote repository into your current folder
+
+$ git clone
+// will copy a remote repository into your current folder 
+
+=================
+installing git:
+
+http://git-scm.com/download/win
+// also comes with gitbash, which is a command line tool, which gives you a more linux-y feel than windows command line.
+
+// better to use commands over the GUI 
+// command is simple to use too
+
+=======
+
+$ touch index.html 
+// create files
+
+$ mkdir <folder-name>
+// make a folder
+
+$ git init
+// initializes the current folder as a git repository 
+// make sure bitdefender doesnt get in the way
+// for bitdefender check (1) protection/antivirus-settings/exceptions (2) protection/safe files/ protected files
+
+$ git config --global user.name 'Ahmed Abdel Gadir'
+$ git config --global user.email 'ahmed.gadir@gmail.com'
+// its good to add your name and email address to git before you do anything
+
+$ git add index.html
+// adds index.html to repository
+
+$ git rm --cached index.html
+// remove index.html from repository
+
+
+// we could also do stuff like
+$ git add *.html
+// which adds all html files to the staging around
