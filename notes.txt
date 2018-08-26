@@ -1,3 +1,5 @@
+https://www.youtube.com/watch?v=SWYqp7iY_Tc&t=78s
+
 for local repositories:
 
 $ git init
@@ -100,3 +102,9 @@ $ git branch <branch-name>
 $ git checkout <branch-name>
 // enters branch
 
+$ touch login.html
+// creates a login.html file inside the current branch
+// NOTE: when you checkout out of the current branch, you wont be able to see this file until you merge the branches
+
+$ git checkout master
+// go back to the master branch
