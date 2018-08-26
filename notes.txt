@@ -74,7 +74,7 @@ $ git commit
 *click i* to insert
 *type* inital commit
 *click esc*
-*type* :wq
+*enter* :wq
 
 ====== quicker way to commit ====
 
@@ -102,9 +102,24 @@ $ git branch <branch-name>
 $ git checkout <branch-name>
 // enters branch
 
-$ touch login.html
-// creates a login.html file inside the current branch
+$ touch foo.html
+// creates a foo.html file inside the current branch
 // NOTE: when you checkout out of the current branch, you wont be able to see this file until you merge the branches
 
 $ git checkout master
 // go back to the master branch
+
+$ git merge <branch-name>
+*editor opens up*
+*enter i*
+// just write something
+*click esc*
+*enter* :wq
+
+=====
+the next step is you go on github.com and make a repository
+
+once it takes you to that page copy the last two lines:
+
+$ git remote add origin https://github.com/AhmedAGadir/Learning-Git.git
+$ git push -u origin master
