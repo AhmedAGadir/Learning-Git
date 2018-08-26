@@ -95,3 +95,10 @@ $ touch .gitignore
 ========== creating branches =====
 
 $ git branch <branch-name>
+// creates branch
+
+$ git checkout <branch-name>
+// enters branch
+
+$ git checkout master
+// go back to the master branch
