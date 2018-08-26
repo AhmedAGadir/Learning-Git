@@ -95,3 +95,4 @@ $ touch .gitignore
 ========== creating branches =====
 
 $ git branch <branch-name>
+// creates branch
