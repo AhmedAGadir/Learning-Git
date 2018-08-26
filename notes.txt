@@ -77,3 +77,21 @@ $ git commit
 ====== quicker way to commit ====
 
 $ git commit -m '<comment here>'
+
+==============
+
+$ clear 
+// clears gitbash
+
+====== creating .gitignore =======
+
+$ touch .gitignore
+
+// to not include files in the commit just write the filename inside .gitingore e.g. 
+"dont-add.txt"
+// to not include directories, write "/directory-name"
+// to not include any of a file type add ".foo"
+
+========== creating branches =====
+
+$ git branch <branch-name>
