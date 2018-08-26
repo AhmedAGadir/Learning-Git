@@ -61,3 +61,19 @@ $ git rm --cached index.html
 // we could also do stuff like
 $ git add *.html
 // which adds all html files to the staging around
+
+$ git add .
+// adds everything to the staging area
+
+
+===== how to commit =======
+
+$ git commit 
+*click i* to insert
+*type* inital commit
+*click esc*
+*type* :wq
+
+====== quicker way to commit ====
+
+$ git commit -m '<comment here>'
