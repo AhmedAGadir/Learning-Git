@@ -96,3 +96,7 @@ $ touch .gitignore
 
 $ git branch <branch-name>
 // creates branch
+
+$ git checkout <branch-name>
+// enters branch
+
