@@ -35,6 +35,10 @@ View changes to files
 
 $ git diff
 
+to create a file
+
+$ touch <FILENAME>
+
 Add a file's changes to be committed
 
 $ git add <FILENAME>
@@ -58,7 +62,7 @@ $ git config --global user.username
 
 ====== remote control ==================
 
-* create a github repository and copy the link
+* create a github repository on the github website and copy the link
 
 Now you've got an empty repository started on GitHub.com. At the top you'll see 'Quick Setup', make sure the 'HTTPS' button is selected and copy the address—this is the address of your repository on GitHub's servers.
 
