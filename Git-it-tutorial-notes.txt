@@ -1,0 +1,262 @@
+
+===== NOTES FROM THE GIT-IT TUTORIAL ==========
+
+====== create a local repository ======
+
+First, make a new folder:
+Tip: mkdir stands for make directory
+
+$ mkdir hello-world
+
+Then go into that folder:
+Tip: cd stands for change directory
+
+$ cd hello-world
+
+Finally, tell Git to initialize (start tracking) the folder you are now in:
+
+$ git init
+
+The last command should return something starting with "Initialized empty Git repository". The others commands do not return anything.
+
+You did it! If you want to be double-sure that it's a Git repository, type git status and if it doesn't return 'fatal: Not a git repository...', you're golden!
+
+tips: 
+List the items in a folder
+$ ls
+
+====== commit to it ========
+
+Check status of changes to a repository
+
+$ git status
+
+View changes to files
+
+$ git diff
+
+Add a file's changes to be committed
+
+$ git add <FILENAME>
+
+To add all files changes
+$ git add .
+
+To commit (aka save) the changes you've added with a short message describing the changes
+
+$ git commit -m "your commit message"
+
+======= configure github with git ============
+
+Add your GitHub username to your Git configuration:
+
+git config --global user.username <USerNamE>
+You can double check what you have set in your Git config by typing:
+
+$ git config --global user.username
+
+
+====== remote control ==================
+
+* create a github repository and copy the link
+
+Now you've got an empty repository started on GitHub.com. At the top you'll see 'Quick Setup', make sure the 'HTTPS' button is selected and copy the address—this is the address of your repository on GitHub's servers.
+
+Back in your terminal, and inside of the 'hello-world' folder that you initialized as a Git repository in the earlier challenge, you want to tell Git to remember the address of the remote version on GitHub's servers. You can have multiple remotes so each requires a name. The primary remote is typically named origin.
+
+To add a remote named 'origin' to your repository:
+
+$ git remote add origin <URLFROMGITHUB>
+
+push to github with
+
+$ git push origin master
+
+======== fork a repo ====================
+
+to clone a repository first fork it, then copy the forked repos url e.g. https://github.com/AhmedAGadir/patchwork. then run: 
+
+$ git clone <URLFROMGITHUB>
+// clones a repository
+
+Go into the folder it created for your local copy of the fork (in this case, named 'patchwork').
+
+$ cd patchwork
+
+Now you've got a copy of the repository on your computer and it is automatically connected to the remote repository (your forked copy) on your GitHub account. Type:
+
+$ git remote -v 
+
+to see that the address to the fork is already set up.
+
+=== Connect to the Original Repository ===========
+
+What if the original repository you forked happens to change? You'll want to be able to pull in those changes too. So let's add another remote connection, this time to the original, github.com/jlord/patchwork, repository with its URL.
+
+You can name this remote connection anything you want, but typically people use the name 'upstream'; let's use that for this.
+
+$ git remote add upstream https://github.com/jlord/patchwork.git
+
+To be sure you have the correct remotes set up, type:
+
+$ git remote -v 
+
+to list out the addresses you have stored. You should have an 'origin' remote with your fork's address and then an 'upstream' remote with the address to the original, the URL noted above in this step.
+
+tips: 
+Add a remote
+$ git remote add <REMOTENAME> <URL>
+Change a remote URL
+$ git remote set-url <REMOTENAME> <URL>
+View remote connections
+$ git remote -v
+
+====== GitHub Pages =========
+
+GitHub will automatically serve and host static website files in branches named 'gh-pages'. This free service is called GitHub Pages. Since the project you forked creates a website, its main branch is named 'gh-pages' instead of 'master'. All repositories that have a 'gh-pages' branch with website files can be found, live online, using this pattern for the URL:
+
+http://githubusername.github.io/repositoryname
+
+======= Create a branch ===========
+
+When you create a branch, Git copies everything from the current branch you're on and places it in the branch you've requested be made.
+
+While still inside of your local 'patchwork' repository, type 
+
+$ git status 
+
+to see what branch you're currently on. Git should reply that you're on the 'gh-pages' branch.
+
+Now create a new branch and name it "add-<username>", where 'username' is your username. For instance, "add-jlord". Branches are case-sensitive so name your branch exactly the way your GitHub name appears.
+
+$ git branch <BRANCHNAME>
+
+Now you have a branch with a new name that is identical to 'gh-pages'.
+
+To go into that branch and work on it you checkout a branch. Go on your new branch:
+
+$ git checkout <BRANCHNAME>
+
+======== Check-in ================
+
+After youve made changes youre going to want to check them in.
+
+Go through the steps for checking in a project:
+
+$ git status
+
+$ git add <contributors/FILENAME>
+
+$ git commit -m "commit message"
+
+Now push your update to your fork, 'origin', on GitHub:
+
+$ git push origin <BRANCHNAME>
+
+tips: 
+You can create and switch to a branch in one line
+$ git checkout -b <BRANCHNAME>
+Create a new branch
+$ git branch <BRANCHNAME>
+Move onto a branch
+$ git checkout <BRANCHNAME>
+List the branches
+$ git branch
+Rename a branch you're currently on
+$ git branch -m <NEWBRANCHNAME>
+Verify what branch you're working on
+$ git status
+
+======= adding collaborators ============
+
+To add collaborators to one of your projects, visit the repository's page on your GitHub account and click the 'Settings' tab in the menu in the upper part of the page. Then select the 'Collaborators' option. Type the username into the text box add and click 'Add'.
+
+Go to your forked Patchwork repository's page on GitHub and add 'reporobot' as a collaborator. The URL should look like this, but with your username.
+
+github.com/YOURUSERNAME/patchwork/settings/collaboration
+
+======= pulling the latest changes from the central repo =========
+
+See if Reporobot has made any changes to your branch by pulling in any changes from the remote named 'origin' on GitHub:
+
+$ git pull <REMOTENAME> <BRANCHNAME>
+
+ours will be:
+
+$ git pull origin add-AhmedAGadir
+
+tips: 
+See changes to the remote before you pull in
+git fetch --dry-run
+
+======== pull requests ===========
+
+Often when you make changes and improvements to a project you've forked, you'll want to send those changes to the maintainer of the original and request that they pull those changes into the original so that everyone can benefit from the updates—that's a pull request.
+
+We want to add you to the list of workshop finishers, so make a pull request to add your username file to the original: github.com/jlord/patchwork.
+
+Often GitHub will detect if you've pushed a branch to a fork and display it at the top of the original's website. If you see that with your 'add-username' branch, you can click to create a Pull Request from there. If not:
+
+Click the green 'New pull request' button.
+Select the branch with the changes you want to submit. It should be the one with 'add-yourusername'.
+You'll now see a page with the details of the pull request you're in the process of submitting. This page shows the commits and changes, in the form of a diff, associated with your pull request as compared to the 'gh-pages' branch of the original.
+
+If the original repository has a contribution documentation, GitHub will link to it. This is documentation from repository owners on how to best make contributions to that project—very helpful to read if you'd like to see your changes adopted!
+
+If everything on the page looks good and as you expect it:
+
+Click 'Create pull request'
+Add a title and description to the changes you're suggesting the original author pull in.
+Click 'Send pull request'!
+Bingo! You submitted a pull request—take a few seconds to bask in the moment.
+
+======== Merge tada ================= 
+
+Merge your branch locally, delete the branch and pull from upstream.
+
+Merge Locally
+
+Your pull request has been merged! Your branch was merged into the 'gh-pages' branch of the original on GitHub. You can merge your branch locally, too.
+
+First, move into the branch you want to merge into—in this case, the branch 'gh-pages'.
+
+$ git checkout gh-pages
+
+Now tell Git what branch you want to merge in—in this case, your feature branch that begins with "add-".
+
+$ git merge <BRANCHNAME>
+
+Tidy up by deleting your feature branch. Now that it has been merged you don't really need it around.
+
+$ git branch -d <BRANCHNAME>
+
+You can also delete the branch from your remote on GitHub:
+
+$ git push <REMOTENAME> --delete <BRANCHNAME>
+
+
+==== Pull from Upstream ====
+
+And last but not least, the original has changed since your pull request was merged—Reporobot added your name to the website! If you pull in these changes from upstream you'll be up to date and have that version too. You can actually see it live as well at: yourusername.github.io/patchwork.
+
+To pull from the original upstream:
+
+$ git pull upstream gh-pages
+
+Congratulations!
+
+You've created local repositories, remote repositories, worked with a collaborator, pushed, pulled and joined the millions of others developing and enriching open source!
+
+Visit jlord.github.io/patchwork to see your name incorporated! Looking to keep going? Checkout the What Next section on the resources page in this app.
+
+tips:
+Merge a branch into current branch
+$ git merge <BRANCHNAME>
+Change the branch you're working on
+$ git checkout <BRANCHNAME>
+Delete a local branch
+$ git branch -d <BRANCHNAME>
+Delete a remote branch
+$ git push <REMOTENAME> --delete <BRANCHNAME>
+Pull from a remote branch
+$ git pull <REMOTENAME> <BRANCHNAME>

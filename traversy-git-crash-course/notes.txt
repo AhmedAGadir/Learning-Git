@@ -1,5 +1,8 @@
 https://www.youtube.com/watch?v=SWYqp7iY_Tc&t=78s
 
+$ git --help
+// for help
+
 for local repositories:
 
 $ git init
@@ -127,3 +130,20 @@ $ git push -u origin master
 // now its a remove repository. to push it to github all you have to do is 
 
 $ git push
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
